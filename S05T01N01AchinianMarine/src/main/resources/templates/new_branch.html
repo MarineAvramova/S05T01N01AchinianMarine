@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Branch management system</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <h1 style="color: #DC143C;text-align: center;">Branch Management System</h1>
+
+    <hr>
+    <h2>Save Branch</h2>
+    <form action="#" th:action="@{/new_branch}" th:object="${branch}" method="POST">
+        <input type="hidden" th:field="*{pk_BranchID}" />
+        <label>
+            <input type="text" th:field="*{nameBranch}" placeholder="Name of Branch" class="form-control mb-8 col-10">
+        </label>
+
+        <label>
+            <input type="text" th:field="*{countryBranch}" placeholder="Country Name" class="form-control mb-4 col-10">
+        </label>
+
+
+        <button type="submit" class="btn btn-info col-2"> Save Branch</button>
+    </form>
+
+    <hr>
+
+    <a th:href="@{/}"> Back to Branch List</a>
+
+</div>
+</body>
+</html>

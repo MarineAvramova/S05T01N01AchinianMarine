@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Branch</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 style="color: #DC143C;text-align: center;"> Branch Management System</h1>
+    <hr>
+    <h2>Update Branch</h2>
+    <form th:action="@{/update_branch/{id}(id=${branch.pk_BranchID})}" th:object="${branch}" method="post">
+        <!-- Hidden field to handle the branch ID -->
+        <input type="hidden" th:field="*{pk_BranchID}"/>
+
+        <!-- Input field for the branch name -->
+        <div class="form-group">
+            <label for="nameBranch">Branch Name:</label>
+
+            <input type="text" id="nameBranch" th:field="*{nameBranch}" class="form-control mb-8 col-10">
+        </div>
+
+        <!-- Input field for the branch country -->
+        <div class="form-group">
+            <label for="countryBranch">Country:</label>
+            <input type="text" id="countryBranch" th:field="*{countryBranch}" class="form-control mb-8 col-10">
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary">Update Branch</button>
+    </form>
+
+    <hr>
+    <!-- Link to go back to the branch list -->
+    <a th:href="@{/}" class="btn btn-secondary">Back to Branch List</a>
+</div>
+</body>
+</html>
